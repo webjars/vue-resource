@@ -11,15 +11,14 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>vue-resource</artifactId>
-    <version>0.8.1-SNAPSHOT</version>
+    <version>0.9.3-SNAPSHOT</version>
     <name>vue-resource</name>
     <description>WebJar for vue-resource</description>
     <url>http://webjars.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>0.8.0</upstream.version>
-        <upstream.url>https://github.com/vuejs/vue-resource/archive/${upstream.version}.zip</upstream.url>
+        <upstream.url>https://github.com/vuejs/vue-resource/archive/${version.unsnapshot}.zip</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
         <requirejs>
             {
@@ -56,6 +55,20 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>com.jamesward</groupId>
+                <artifactId>unsnapshot-maven-plugin</artifactId>
+                <version>0.1</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>unsnapshot</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.8</version>
@@ -71,7 +84,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/${project.artifactId}-${upstream.version}/dist" />
+                                    <fileset dir="${project.build.directory}/${project.artifactId}-${version.unsnapshot}/dist" />
                                 </move>
                             </target>
                         </configuration>
