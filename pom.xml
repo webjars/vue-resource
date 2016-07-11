@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>vue-resource</artifactId>
-    <version>0.9.3-SNAPSHOT</version>
+    <version>0.9.3</version>
     <name>vue-resource</name>
     <description>WebJar for vue-resource</description>
     <url>http://webjars.org</url>
@@ -49,7 +49,7 @@
         <url>http://github.com/webjars/vue-resource</url>
         <connection>scm:git:https://github.com/webjars/vue-resource.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/vue-resource.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>vue-resource-0.9.3</tag>
     </scm>
 
     <build>
